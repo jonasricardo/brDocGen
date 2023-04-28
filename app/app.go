@@ -1,7 +1,7 @@
 package app
 
 import (
-	"fmt"
+	"jonasricardo/brDocGen/cnpj"
 	"jonasricardo/brDocGen/cpf"
 
 	"github.com/urfave/cli/v2"
@@ -47,7 +47,7 @@ func Gerar() *cli.App {
 					Value:   1,
 				},
 			},
-			Action: teste,
+			Action: geraCnpj,
 		},
 	}
 
@@ -63,9 +63,11 @@ func geraCpf(c *cli.Context) error {
 	return nil
 }
 
-func teste(c *cli.Context) error {
-	fmt.Println(c.Bool("formatado"))
+func geraCnpj(c *cli.Context) error {
+
+	for i := 0; i < c.Int("quantidade"); i++ {
+		cnpj.GeraCNPJ(c.Bool("formatado"))
+	}
 
 	return nil
-
 }
