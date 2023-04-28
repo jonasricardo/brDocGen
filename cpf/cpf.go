@@ -48,7 +48,7 @@ func escreve(cpf [11]int, formatado bool) {
 	}
 
 	if formatado {
-		cpfOutput = fmt.Sprintf("%s.%s.%s-%s", cpfOutput[0:3], cpfOutput[0:3], cpfOutput[0:3], cpfOutput[0:2])
+		cpfOutput = fmt.Sprintf("%s.%s.%s-%s", cpfOutput[0:3], cpfOutput[3:6], cpfOutput[6:9], cpfOutput[9:11])
 	}
 
 	fmt.Println(cpfOutput)
