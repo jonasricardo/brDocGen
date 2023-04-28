@@ -16,10 +16,12 @@ func inicializar() [11]int {
 	return cpf
 }
 
-func somaFatores(cpf [11]int, limite int) int {
+// dv - dígito 1 ou 2
+func somaFatores(cpf [11]int, dv int) int {
 
 	i := 0
 	sum := 0
+	limite := 9 + dv
 	for limite >= 2 {
 		sum += cpf[i] * limite
 		limite--
@@ -58,8 +60,8 @@ func GeraCPF(formatado bool) {
 
 	cpf := inicializar()
 
-	cpf[9] = dv(somaFatores(cpf, 10))
-	cpf[10] = dv(somaFatores(cpf, 11))
+	cpf[9] = dv(somaFatores(cpf, 1))
+	cpf[10] = dv(somaFatores(cpf, 2))
 
 	escreve(cpf, formatado)
 
